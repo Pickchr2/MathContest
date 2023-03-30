@@ -75,7 +75,7 @@ Partial Class MathContestForm
         Me.ProblemTypeGroupBox.Size = New System.Drawing.Size(209, 278)
         Me.ProblemTypeGroupBox.TabIndex = 2
         Me.ProblemTypeGroupBox.TabStop = False
-        Me.ProblemTypeGroupBox.Text = "Math Problem Type"
+        Me.ProblemTypeGroupBox.Text = "Math Problem Operation"
         '
         'DivideRadioButton
         '
@@ -306,8 +306,7 @@ Partial Class MathContestForm
         Me.SecondNumberTextBox.Size = New System.Drawing.Size(193, 27)
         Me.SecondNumberTextBox.TabIndex = 3
         Me.SecondNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.MathContestToolTip.SetToolTip(Me.SecondNumberTextBox, "Second number to use in arithmatic. (Enter student information and select operati" &
-        "on)")
+        Me.MathContestToolTip.SetToolTip(Me.SecondNumberTextBox, "Second number in the math equation.")
         '
         'FirstNumberTextBox
         '
@@ -318,8 +317,7 @@ Partial Class MathContestForm
         Me.FirstNumberTextBox.Size = New System.Drawing.Size(193, 27)
         Me.FirstNumberTextBox.TabIndex = 1
         Me.FirstNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.MathContestToolTip.SetToolTip(Me.FirstNumberTextBox, "First number to use in arithmatic. (Enter student information and select operatio" &
-        "n)")
+        Me.MathContestToolTip.SetToolTip(Me.FirstNumberTextBox, "First number in the math equation.")
         '
         'MathContestMenuStrip
         '
@@ -361,7 +359,7 @@ Partial Class MathContestForm
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(154, 26)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'HelpToolStripMenuItem
