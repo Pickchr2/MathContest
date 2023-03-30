@@ -19,8 +19,11 @@ Public Class MathContestForm
         FirstNumberTextBox.Clear()
         SecondNumberTextBox.Clear()
         AnswerTextBox.Clear()
-        AddRadioButton.Select()
         NameTextBox.Focus()
+        AddRadioButton.Checked = True
+        SubtractRadioButton.Checked = False
+        MultiplyRadioButton.Checked = False
+        DivideRadioButton.Checked = False
         ProblemTypeGroupBox.Enabled = False
         FirstNumberTextBox.Enabled = False
         SecondNumberTextBox.Enabled = False
