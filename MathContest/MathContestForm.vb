@@ -23,7 +23,7 @@ Public Class MathContestForm
             AgeTextBox.SelectAll()
         End If
 
-        If invalidData <> "" Then
+        If invalidData <> "" And NameTextBox.Enabled = True Then
             MessageBox.Show(invalidData)
         Else
             NameTextBox.Enabled = False
@@ -31,21 +31,27 @@ Public Class MathContestForm
             GradeTextBox.Enabled = False
             ProblemTypeGroupBox.Enabled = True
             AddRadioButton.Focus()
+            GenerateRandomNumbers()
         End If
+    End Sub
+
+    Private Sub GenerateRandomNumbers()
+        Dim randomNumber As New Random()
+        Dim firstRandomNumber As Integer
+        Dim secondRandomNumber As Integer
+
+        firstRandomNumber = CInt(randomNumber.Next(1, 10))
+        secondRandomNumber = CInt(randomNumber.Next(1, 10))
+
+        FirstNumberTextBox.Text = firstRandomNumber.ToString()
+        SecondNumberTextBox.Text = secondRandomNumber.ToString()
     End Sub
 
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click, ExitToolStripMenuItem.Click
         Me.Close()
     End Sub
 
-    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
-        NameTextBox.Clear()
-        AgeTextBox.Clear()
-        GradeTextBox.Clear()
-        FirstNumberTextBox.Clear()
-        SecondNumberTextBox.Clear()
-        AnswerTextBox.Clear()
-        NameTextBox.Focus()
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click, ClearToolStripMenuItem.Click
         AddRadioButton.Checked = True
         SubtractRadioButton.Checked = False
         MultiplyRadioButton.Checked = False
@@ -58,6 +64,16 @@ Public Class MathContestForm
         SummaryButton.Enabled = False
         SubmitToolStripMenuItem.Enabled = False
         SummaryToolStripMenuItem.Enabled = False
+        NameTextBox.Clear()
+        AgeTextBox.Clear()
+        GradeTextBox.Clear()
+        FirstNumberTextBox.Clear()
+        SecondNumberTextBox.Clear()
+        AnswerTextBox.Clear()
+        NameTextBox.Enabled = True
+        AgeTextBox.Enabled = True
+        GradeTextBox.Enabled = True
+        NameTextBox.Focus()
     End Sub
 
     Private Sub NameTextBox_TextChanged(sender As Object, e As EventArgs) Handles NameTextBox.TextChanged
