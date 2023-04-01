@@ -23,14 +23,20 @@ Public Class MathContestForm
             AgeTextBox.SelectAll()
         End If
 
-        If invalidData <> "" And NameTextBox.Enabled = True Then
+        If invalidData <> "" Then
             MessageBox.Show(invalidData)
         Else
             NameTextBox.Enabled = False
             AgeTextBox.Enabled = False
             GradeTextBox.Enabled = False
             ProblemTypeGroupBox.Enabled = True
+            AnswerTextBox.Enabled = True
+            SubmitButton.Enabled = True
+            SummaryButton.Enabled = True
+            SubmitToolStripMenuItem.Enabled = True
+            SummaryToolStripMenuItem.Enabled = True
             AddRadioButton.Focus()
+
             GenerateRandomNumbers()
         End If
     End Sub
@@ -77,20 +83,24 @@ Public Class MathContestForm
     End Sub
 
     Private Sub NameTextBox_TextChanged(sender As Object, e As EventArgs) Handles NameTextBox.TextChanged
-        If GradeTextBox.Text <> "" And AgeTextBox.Text <> "" Then
+        If GradeTextBox.Text <> "" And AgeTextBox.Text <> "" And NameTextBox.Enabled = True Then
             ValidateInput()
         End If
     End Sub
 
     Private Sub AgeTextBox_TextChanged(sender As Object, e As EventArgs) Handles AgeTextBox.TextChanged
-        If NameTextBox.Text <> "" And GradeTextBox.Text <> "" Then
+        If NameTextBox.Text <> "" And GradeTextBox.Text <> "" And AgeTextBox.Enabled = True Then
             ValidateInput()
         End If
     End Sub
 
     Private Sub GradeTextBox_TextChanged(sender As Object, e As EventArgs) Handles GradeTextBox.TextChanged
-        If NameTextBox.Text <> "" And AgeTextBox.Text <> "" Then
+        If NameTextBox.Text <> "" And AgeTextBox.Text <> "" And GradeTextBox.Enabled = True Then
             ValidateInput()
         End If
+    End Sub
+
+    Private Sub AddRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles AddRadioButton.CheckedChanged, SubtractRadioButton.CheckedChanged, MultiplyRadioButton.CheckedChanged, DivideRadioButton.CheckedChanged
+        GenerateRandomNumbers()
     End Sub
 End Class
