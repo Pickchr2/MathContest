@@ -262,12 +262,12 @@ Partial Class MathContestForm
         '
         'AnswerLabel
         '
-        Me.AnswerLabel.AutoSize = True
-        Me.AnswerLabel.Location = New System.Drawing.Point(52, 217)
+        Me.AnswerLabel.Location = New System.Drawing.Point(1, 196)
         Me.AnswerLabel.Name = "AnswerLabel"
-        Me.AnswerLabel.Size = New System.Drawing.Size(121, 20)
+        Me.AnswerLabel.Size = New System.Drawing.Size(213, 41)
         Me.AnswerLabel.TabIndex = 4
-        Me.AnswerLabel.Text = "Student's Answer"
+        Me.AnswerLabel.Text = "            Student's Answer               (Round to nearest 10th)"
+        Me.AnswerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'SecondNumberLabel
         '

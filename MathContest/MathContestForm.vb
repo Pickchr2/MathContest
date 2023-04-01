@@ -8,6 +8,9 @@ Option Explicit On
 Option Strict On
 
 Public Class MathContestForm
+    Dim totalAnswersCorrect As Integer
+    Dim totalAnswersAttempted As Integer
+
     Private Sub ValidateInput()
         Dim invalidData As String = ""
 
@@ -80,6 +83,8 @@ Public Class MathContestForm
         AgeTextBox.Enabled = True
         GradeTextBox.Enabled = True
         NameTextBox.Focus()
+        totalAnswersCorrect = 0
+        totalAnswersAttempted = 0
     End Sub
 
     Private Sub NameTextBox_TextChanged(sender As Object, e As EventArgs) Handles NameTextBox.TextChanged
@@ -102,5 +107,42 @@ Public Class MathContestForm
 
     Private Sub AddRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles AddRadioButton.CheckedChanged, SubtractRadioButton.CheckedChanged, MultiplyRadioButton.CheckedChanged, DivideRadioButton.CheckedChanged
         GenerateRandomNumbers()
+    End Sub
+
+    Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click, SubmitToolStripMenuItem.Click
+        Dim correctAnswer As Decimal
+        Dim studentAnswer As Decimal
+
+        Try
+            studentAnswer = CDec(AnswerTextBox.Text)
+
+            If AddRadioButton.Checked = True Then
+                correctAnswer = CDec(FirstNumberTextBox.Text) + CDec(SecondNumberTextBox.Text)
+            ElseIf SubtractRadioButton.Checked = True Then
+                correctAnswer = CDec(FirstNumberTextBox.Text) - CDec(SecondNumberTextBox.Text)
+            ElseIf MultiplyRadioButton.Checked = True Then
+                correctAnswer = CDec(FirstNumberTextBox.Text) * CDec(SecondNumberTextBox.Text)
+            ElseIf DivideRadioButton.Checked = True Then
+                correctAnswer = Math.Round(CDec(FirstNumberTextBox.Text) / CDec(SecondNumberTextBox.Text), 1)
+            End If
+
+            If studentAnswer = correctAnswer Then
+                totalAnswersAttempted += 1
+                totalAnswersCorrect += 1
+                MessageBox.Show("Congratulations! " & studentAnswer & " is correct!")
+            Else
+                totalAnswersAttempted += 1
+                MessageBox.Show("Sorry, " & studentAnswer & " is incorrect. The correct answer is " & correctAnswer & ".")
+            End If
+
+            GenerateRandomNumbers()
+
+            AnswerTextBox.Clear()
+            AnswerTextBox.Focus()
+        Catch ex As Exception
+            MessageBox.Show("The answer entered must be a valid number, please try again.")
+            AnswerTextBox.Focus()
+            AnswerTextBox.SelectAll()
+        End Try
     End Sub
 End Class
