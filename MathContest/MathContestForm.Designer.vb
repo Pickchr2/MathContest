@@ -372,7 +372,7 @@ Partial Class MathContestForm
         'InstructionsToolStripMenuItem
         '
         Me.InstructionsToolStripMenuItem.Name = "InstructionsToolStripMenuItem"
-        Me.InstructionsToolStripMenuItem.Size = New System.Drawing.Size(167, 26)
+        Me.InstructionsToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
         Me.InstructionsToolStripMenuItem.Text = "Instructions"
         '
         'MathContestForm

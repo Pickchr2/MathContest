@@ -149,4 +149,8 @@ Public Class MathContestForm
     Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click, SummaryToolStripMenuItem.Click
         MessageBox.Show(NameTextBox.Text & " Has answered " & totalAnswersCorrect & " question(s) correct out of " & totalAnswersAttempted & " question(s) attempted.")
     End Sub
+
+    Private Sub InstructionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InstructionsToolStripMenuItem.Click
+        MessageBox.Show("Enter the student's information and choose desired operation to generate random numbers. Then, Submit your answer. Click summary to see how many correct answers so far.")
+    End Sub
 End Class
