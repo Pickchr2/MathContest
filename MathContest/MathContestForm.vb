@@ -145,4 +145,8 @@ Public Class MathContestForm
             AnswerTextBox.SelectAll()
         End Try
     End Sub
+
+    Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click, SummaryToolStripMenuItem.Click
+        MessageBox.Show(NameTextBox.Text & " Has answered " & totalAnswersCorrect & " question(s) correct out of " & totalAnswersAttempted & " question(s) attempted.")
+    End Sub
 End Class
